@@ -4,9 +4,9 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-// import App from './App.tsx'
 import './index.css'
 import Root from './routes/root.tsx';
+import Words from './routes/words.tsx';
 import ErrorPage from './error-page.tsx';
 import MainPage from './components/MainPage.tsx';
 
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       },
       {
         path: "words",
-        element: <div className='text-white'>words</div>,
+        element: <Words />,
       },
       {
         path: "practice",

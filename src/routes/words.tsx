@@ -49,6 +49,36 @@ const words = [
     foreign: "journey",
     example: "A journey of a thousand miles begins with a single step.",
   },
+  {
+    id: "9",
+    native: "приветствие",
+    foreign: "greeting",
+    example: "Greetings from Earth!",
+  },
+  {
+    id: "10",
+    native: "приветствие",
+    foreign: "greeting",
+    example: "Greetings from Earth!",
+  },
+  {
+    id: "11",
+    native: "приветствие",
+    foreign: "greeting",
+    example: "Greetings from Earth!",
+  },
+  {
+    id: "12",
+    native: "приветствие",
+    foreign: "greeting",
+    example: "Greetings from Earth!",
+  },
+  {
+    id: "13",
+    native: "приветствие",
+    foreign: "greeting",
+    example: "Greetings from Earth!",
+  },
 ];
 
 export default function Words() {

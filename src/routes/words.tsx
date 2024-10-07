@@ -89,15 +89,11 @@ export default function Words() {
       )}
 
       {words.length > 0 && words.map((word) => (
-        <div
-          key={word.id}
-          className="py-1 px-2 text-white bg-sky-500/10 rounded-lg mb-2 shadow shadow-white/25"
-          
-        >
+        <AddEditWords key={word.id}>
           <p className="font-bold">{word.foreign}</p>
           <p className="">{word.native}</p>
           <p className="text-gray-400 font-thin">{word.example}</p>
-        </div>
+        </AddEditWords>
       ))}
 
       <div className="fixed bottom-20 right-3">

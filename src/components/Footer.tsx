@@ -30,10 +30,10 @@ export default function Footer() {
         >
           {({ isActive }) => (
             <>
+              <img src={link.icon} className={`h-full transition-all ${isActive ? "scale-125" : ""}`} alt={link.url} />
               {isActive &&
                 <span className="absolute h-full w-full rounded-full shadow-inner shadow-white"></span>
               }
-              <img src={link.icon} className={`h-full z-10 transition-all ${isActive ? "scale-125" : ""}`} alt={link.url} />
             </>
           )}
         </NavLink>

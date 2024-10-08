@@ -108,15 +108,23 @@ export default function Words() {
 
       {words.length > 0 &&
         words.map((word) => (
-          <AddEditWords key={word.id} word={word} needUpdate={setNeedUpdate}>
+          <AddEditWords
+            key={word.id}
+            word={word}
+            needUpdate={setNeedUpdate}
+            className="py-1 px-2 text-white bg-sky-500/10 rounded-lg mb-2 shadow shadow-white/25"
+          >
             <p className="font-bold">{word.foreign}</p>
             <p className="">{word.native}</p>
-            <p className="text-gray-400 font-thin">{word.example}</p>
+            <p className="text-gray-400 font-thin italic">{word.example}</p>
           </AddEditWords>
         ))}
 
       <div className="fixed bottom-20 right-3">
-        <AddEditWords needUpdate={setNeedUpdate} />
+        <AddEditWords
+          needUpdate={setNeedUpdate}
+          className="py-1 px-2 text-white bg-sky-500/10 rounded-lg mb-2 shadow shadow-white/25"
+        />
       </div>
     </section>
   );

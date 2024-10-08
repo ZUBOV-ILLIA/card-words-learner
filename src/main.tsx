@@ -6,6 +6,7 @@ import Root from "./routes/root.tsx";
 import Words from "./routes/words.tsx";
 import ErrorPage from "./error-page.tsx";
 import MainPage from "./components/MainPage.tsx";
+import Practice from "./routes/practice.tsx";
 
 const router = createBrowserRouter([
   {
@@ -23,11 +24,11 @@ const router = createBrowserRouter([
       },
       {
         path: "practice",
-        element: <div className="text-white">practice</div>,
+        element: <Practice />,
       },
       {
         path: "user",
-        element: <div className="text-white">user</div>,
+        element: <div className="text-white">user settings</div>,
       },
     ],
   },

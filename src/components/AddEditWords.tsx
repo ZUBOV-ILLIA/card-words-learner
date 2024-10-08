@@ -9,11 +9,13 @@ import CustomInput from "./CustomInput";
 export default function AddEditWords({
   word,
   children,
+  className,
   needUpdate,
 }: {
   word?: Word;
   children?: React.ReactNode;
-  needUpdate: (arg: boolean) => void;
+  className?: string;
+  needUpdate?: (arg: boolean) => void;
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [foreignWord, setForeignWord] = useState(
@@ -65,7 +67,9 @@ export default function AddEditWords({
     setNativeWord("");
     setExample("");
 
-    needUpdate(true);
+    if (needUpdate) {
+      needUpdate(true);
+    }
   }
 
   async function handleDeleteWord() {
@@ -74,16 +78,16 @@ export default function AddEditWords({
     }
 
     setIsModalOpen(false);
-    needUpdate(true);
+
+    if (needUpdate) {
+      needUpdate(true);
+    }
   }
 
   return (
     <>
       {children ? (
-        <div
-          className="py-1 px-2 text-white bg-sky-500/10 rounded-lg mb-2 shadow shadow-white/25"
-          onClick={() => setIsModalOpen(true)}
-        >
+        <div className={className} onClick={() => setIsModalOpen(true)}>
           {children}
         </div>
       ) : (

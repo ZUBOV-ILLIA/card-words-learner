@@ -1,87 +1,103 @@
+import { useEffect, useState } from "react";
 import AddEditWords from "../components/AddEditWords";
+import { getWordsList, Word } from "../api/apiWords";
 
-const words = [
-  {
-    id: "1",
-    native: "привет",
-    foreign: "hello",
-    example: "Hello, world!",
-  },
-  {
-    id: "2",
-    native: "пока",
-    foreign: "goodbye",
-    example: "Goodbye, world!",
-  },
-  {
-    id: "3",
-    native: "спасибо",
-    foreign: "thank you",
-    example: "Thank you for your help!",
-  },
-  {
-    id: "4",
-    native: "добрый день",
-    foreign: "good morning",
-    example: "Good morning, world!",
-  },
-  {
-    id: "5",
-    native: "добрый вечер",
-    foreign: "good evening",
-    example: "Good evening, world!",
-  },
-  {
-    id: "6",
-    native: "доброй ночи",
-    foreign: "good night",
-    example: "Good night, world!",
-  },
-  {
-    id: "7",
-    native: "путь",
-    foreign: "path",
-    example: "The path to success is difficult to find.",
-  },
-  {
-    id: "8",
-    native: "путешествие",
-    foreign: "journey",
-    example: "A journey of a thousand miles begins with a single step.",
-  },
-  {
-    id: "9",
-    native: "приветствие",
-    foreign: "greeting",
-    example: "Greetings from Earth!",
-  },
-  {
-    id: "10",
-    native: "приветствие",
-    foreign: "greeting",
-    example: "Greetings from Earth!",
-  },
-  {
-    id: "11",
-    native: "приветствие",
-    foreign: "greeting",
-    example: "Greetings from Earth!",
-  },
-  {
-    id: "12",
-    native: "приветствие",
-    foreign: "greeting",
-    example: "Greetings from Earth!",
-  },
-  {
-    id: "13",
-    native: "приветствие",
-    foreign: "greeting",
-    example: "Greetings from Earth!",
-  },
-];
+// const words = [
+//   {
+//     id: "1",
+//     native: "река",
+//     foreign: "river",
+//     example: "The river flows through the mountains.",
+//   },
+//   {
+//     id: "2",
+//     native: "медведь",
+//     foreign: "bear",
+//     example: "The bear is a strong and powerful animal.",
+//   },
+//   {
+//     id: "3",
+//     native: "заяц",
+//     foreign: "hare",
+//     example: "The hare runs quickly through the forest.",
+//   },
+//   {
+//     id: "4",
+//     native: "лодка",
+//     foreign: "boat",
+//     example: "The boat sails across the calm lake.",
+//   },
+//   {
+//     id: "5",
+//     native: "дерево",
+//     foreign: "tree",
+//     example: "The tree provides shade in the summer.",
+//   },
+//   {
+//     id: "6",
+//     native: "гора",
+//     foreign: "mountain",
+//     example: "The mountain stands tall and majestic.",
+//   },
+//   {
+//     id: "7",
+//     native: "рыба",
+//     foreign: "fish",
+//     example: "The fish swims swiftly in the river.",
+//   },
+//   {
+//     id: "8",
+//     native: "лес",
+//     foreign: "forest",
+//     example: "The forest is full of tall trees and wild animals.",
+//   },
+//   {
+//     id: "9",
+//     native: "волк",
+//     foreign: "wolf",
+//     example: "The wolf howls at the moon in the night.",
+//   },
+//   {
+//     id: "10",
+//     native: "звезда",
+//     foreign: "star",
+//     example: "The stars twinkle brightly in the night sky.",
+//   },
+//   {
+//     id: "11",
+//     native: "птица",
+//     foreign: "bird",
+//     example: "The bird sings a beautiful melody in the morning.",
+//   },
+//   {
+//     id: "12",
+//     native: "солнечный свет",
+//     foreign: "sunlight",
+//     example: "The sunlight warms the earth.",
+//   },
+//   {
+//     id: "13",
+//     native: "ветер",
+//     foreign: "wind",
+//     example: "The wind blows gently through the fields.",
+//   },
+// ];
 
 export default function Words() {
+  const [words, setWords] = useState<Word[]>([]);
+  const [needUpdate, setNeedUpdate] = useState(true);
+
+  useEffect(() => {
+    if (needUpdate) {
+      (async function () {
+        const wordsList = await getWordsList();
+        setWords(wordsList);
+      })();
+
+      setNeedUpdate(false);
+    }
+  }, [needUpdate]);
+
   return (
     <section className="">
       {words.length === 0 && (
@@ -92,7 +108,7 @@ export default function Words() {
 
       {words.length > 0 &&
         words.map((word) => (
-          <AddEditWords key={word.id}>
+          <AddEditWords key={word.id} word={word} needUpdate={setNeedUpdate}>
             <p className="font-bold">{word.foreign}</p>
             <p className="">{word.native}</p>
             <p className="text-gray-400 font-thin">{word.example}</p>
@@ -100,7 +116,7 @@ export default function Words() {
         ))}
 
       <div className="fixed bottom-20 right-3">
-        <AddEditWords />
+        <AddEditWords needUpdate={setNeedUpdate} />
       </div>
     </section>
   );

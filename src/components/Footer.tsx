@@ -26,18 +26,23 @@ export default function Footer() {
           key={link.url}
           to={link.url}
           className="p-2 flex justify-center items-center text-white relative"
-          
         >
           {({ isActive }) => (
             <>
-              <img src={link.icon} className={`h-full transition-all ${isActive ? "scale-125" : ""}`} alt={link.url} />
-              {isActive &&
+              <img
+                src={link.icon}
+                className={`h-full transition-all ${
+                  isActive ? "scale-125" : ""
+                }`}
+                alt={link.url}
+              />
+              {isActive && (
                 <span className="absolute h-full w-full rounded-full shadow-inner shadow-white"></span>
-              }
+              )}
             </>
           )}
         </NavLink>
       ))}
     </footer>
-  )
+  );
 }

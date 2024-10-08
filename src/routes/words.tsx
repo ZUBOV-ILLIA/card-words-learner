@@ -85,20 +85,23 @@ export default function Words() {
   return (
     <section className="">
       {words.length === 0 && (
-        <p className="text-gray-400 font-thin text-center">Давай добавим слова для изучения</p>
+        <p className="text-gray-400 font-thin text-center">
+          Давай добавим слова для изучения
+        </p>
       )}
 
-      {words.length > 0 && words.map((word) => (
-        <AddEditWords key={word.id}>
-          <p className="font-bold">{word.foreign}</p>
-          <p className="">{word.native}</p>
-          <p className="text-gray-400 font-thin">{word.example}</p>
-        </AddEditWords>
-      ))}
+      {words.length > 0 &&
+        words.map((word) => (
+          <AddEditWords key={word.id}>
+            <p className="font-bold">{word.foreign}</p>
+            <p className="">{word.native}</p>
+            <p className="text-gray-400 font-thin">{word.example}</p>
+          </AddEditWords>
+        ))}
 
       <div className="fixed bottom-20 right-3">
         <AddEditWords />
       </div>
     </section>
-  )
+  );
 }

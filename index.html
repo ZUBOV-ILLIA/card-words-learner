@@ -10,5 +10,13 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      let currentUrl = window.location.href;
+      let updatedUrl = currentUrl.replace(/\/\?\//, "/");
+
+      if (currentUrl !== updatedUrl) {
+        window.location.href = updatedUrl;
+      }
+    </script>
   </body>
 </html>

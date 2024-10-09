@@ -28,7 +28,7 @@ export default function RandomCard({ word }: Props) {
       {showCard && (
         <div
           key={word.id}
-          className="absolute top-0 left-0 p-3 h-full w-full flex flex-col items-center justify-between bg-sky-200"
+          className="absolute top-0 left-0 p-3 h-full w-full flex flex-col items-center justify-between bg-white"
         >
           {!showTranslation && (
             <div
@@ -38,9 +38,7 @@ export default function RandomCard({ word }: Props) {
           )}
           <span className="font-bold text-2xl">{word.foreign}</span>
           <span className="text-xl">{showTranslation && word.native}</span>
-          <span className="italic font-thin text-gray-600">
-            {showTranslation && word.example}
-          </span>
+          <span className="italic">{showTranslation && word.example}</span>
 
           <div className="w-full flex z-10">
             <div className="p-2 mr-auto transition-shadow active:shadow-md rounded-lg">

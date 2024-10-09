@@ -18,12 +18,16 @@ export default function AddEditWords({
   needUpdate?: (arg: boolean) => void;
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [foreignWord, setForeignWord] = useState(
-    word?.foreign ? word.foreign : ""
-  );
-  const [nativeWord, setNativeWord] = useState(word?.native ? word.native : "");
-  const [example, setExample] = useState(word?.example ? word.example : "");
+  const [foreignWord, setForeignWord] = useState("");
+  const [nativeWord, setNativeWord] = useState("");
+  const [example, setExample] = useState("");
   const [hasError, setHasError] = useState(false);
+
+  useEffect(() => {
+    setForeignWord(word?.foreign ? word.foreign : "");
+    setNativeWord(word?.native ? word.native : "");
+    setExample(word?.example ? word.example : "");
+  }, [word]);
 
   useEffect(() => {
     setHasError(!foreignWord || !nativeWord);

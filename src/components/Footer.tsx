@@ -1,7 +1,8 @@
 import { NavLink } from "react-router-dom";
 import booksIcon from "/books.svg";
-import alienIcon from "/alien.svg";
+// import alienIcon from "/alien.svg";
 import cardIcon from "/card.svg";
+// import homeIcon from "/home.svg";
 
 const links = [
   {
@@ -12,20 +13,24 @@ const links = [
     icon: cardIcon,
     url: "/practice",
   },
-  {
-    icon: alienIcon,
-    url: "/user",
-  },
+  // {
+  //   icon: homeIcon,
+  //   url: "/",
+  // },
+  // {
+  //   icon: alienIcon,
+  //   url: "/user",
+  // },
 ];
 
 export default function Footer() {
   return (
-    <footer className="h-14 p-1 flex justify-around justify-self-end bg-sky-200 bg-opacity-25 shadow-sm shadow-white">
+    <footer className="h-14 p-1 flex justify-around bg-sky-200">
       {links.map((link) => (
         <NavLink
           key={link.url}
           to={link.url}
-          className="p-2 flex justify-center items-center text-white relative"
+          className="p-2 flex justify-center items-center relative"
         >
           {({ isActive }) => (
             <>
@@ -36,9 +41,13 @@ export default function Footer() {
                 }`}
                 alt={link.url}
               />
-              {isActive && (
-                <span className="absolute h-full w-full rounded-full shadow-inner shadow-white"></span>
-              )}
+              {/* {isActive && ( */}
+              <span
+                className={`absolute h-full w-full rounded-full transition-all  ${
+                  isActive ? "shadow-inner shadow-white bg-black/10" : ""
+                }`}
+              ></span>
+              {/* )} */}
             </>
           )}
         </NavLink>

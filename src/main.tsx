@@ -5,7 +5,7 @@ import "./index.css";
 import Root from "./routes/root.tsx";
 import Words from "./routes/words.tsx";
 import ErrorPage from "./error-page.tsx";
-import MainPage from "./components/MainPage.tsx";
+// import MainPage from "./components/MainPage.tsx";
 import Practice from "./routes/practice.tsx";
 
 const router = createBrowserRouter(
@@ -17,7 +17,8 @@ const router = createBrowserRouter(
       children: [
         {
           path: "/",
-          element: <MainPage />,
+          // element: <MainPage />,
+          element: <Words />,
         },
         {
           path: "words",

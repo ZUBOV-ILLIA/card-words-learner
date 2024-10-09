@@ -101,12 +101,12 @@ export default function AddEditWords({
 
       {isModalOpen &&
         createPortal(
-          <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-50">
+          <div className="fixed top-0 left-0 w-full h-full flex justify-center z-50">
             <div
               className="absolute top-0 left-0 w-full h-full bg-black opacity-50"
               onClick={() => setIsModalOpen(false)}
             />
-            <div className="w-11/12 flex flex-col bg-white p-4 rounded-lg z-10">
+            <div className="mt-4 h-max w-11/12 flex flex-col bg-white p-4 rounded-lg z-10">
               <CustomInput
                 name="foreign-word"
                 placeholder="Слово на иностранном языке *"

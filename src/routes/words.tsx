@@ -4,7 +4,7 @@ import {
   deleteWord,
   getWordsList,
   Word,
-  addMockedWords,
+  // addMockedWords,
 } from "../api/apiWords";
 import trashIcon from "/trash.svg";
 import editIcon from "/edit.svg";
@@ -32,10 +32,10 @@ export default function Words() {
     setNeedUpdate(true);
   }
 
-  async function handleAddMockedWords() {
-    await addMockedWords();
-    setNeedUpdate(true);
-  }
+  // async function handleAddMockedWords() {
+  //   await addMockedWords();
+  //   setNeedUpdate(true);
+  // }
 
   return (
     <section className="mb-11">
@@ -83,12 +83,12 @@ export default function Words() {
         />
       </div>
 
-      <div
+      {/* <div
         className="fixed bottom-20 left-3 p-3 text-white bg-sky-500 rounded-full uppercase"
         onClick={handleAddMockedWords}
       >
         generate
-      </div>
+      </div> */}
 
       <div className="fixed bottom-14 left-0 h-3 w-full bg-gradient-to-t from-slate-200 from-20%"></div>
     </section>
